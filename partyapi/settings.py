@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -63,6 +64,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "partyapi.wsgi.application"
 
 # Use PostgreSQL from DATABASE_URL env var, fallback to SQLite for local dev
+load_dotenv()
 DATABASES = {
     "default": dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
