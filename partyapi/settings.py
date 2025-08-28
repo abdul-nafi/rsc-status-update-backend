@@ -14,6 +14,9 @@ DEBUG = os.environ.get("DEBUG", "false").lower() == "true"
 # ALLOWED_HOSTS from env var; split comma separated or empty list
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",") if os.environ.get("ALLOWED_HOSTS") else []
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://rsc-status-update-backend-production.up.railway.app"
+]
 AUTH_USER_MODEL = "members.PartyUser"
 
 INSTALLED_APPS = [
